@@ -4,7 +4,15 @@ A small mobile-friendly web game for memorizing the **Drugs** and **Medical** it
 names from the [SCAV Prototype wiki](https://scavprototype.wiki.gg/wiki/Items).
 
 Shows an item icon and three name buttons — pick the right one. Tracks **Total /
-Correct / Incorrect** guesses and a **Score** (+1 correct, −1 incorrect). All
+Correct / Incorrect** guesses and a **Score** (+1 correct, −1 incorrect).
+
+Item selection uses **spaced repetition (a Leitner system)** instead of pure random:
+each item has a "box" level — a wrong answer drops it to box 0 so it returns very
+soon, a correct answer promotes it so it's scheduled further out. Items you struggle
+with show up several times more often than ones you know. Progress is saved per mode
+in `localStorage`, and **Reset** clears it for the current mode.
+
+All
 interface text is shown in both English and Russian (the answer buttons stay as the
 item's in-game name). The answer buttons use the wiki's pixel font **Retro Gaming**
 (self-hosted in `fonts/`); the rest of the UI uses the system default font.
