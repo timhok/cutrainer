@@ -1,0 +1,117 @@
+/* 'Retro Gaming' pixel font from the SCAV Prototype wiki — used only on the
+   answer buttons (item names are Latin, so no Cyrillic fallback needed). */
+@font-face{
+  font-family:"Retro Gaming";font-style:normal;font-weight:400;font-display:swap;
+  src:url("fonts/retro_gaming.woff2") format("woff2"),
+      url("fonts/retro_gaming.woff") format("woff");
+}
+
+:root{
+  --bg:#2b2f33;
+  --panel:#373c41;
+  --panel2:#41474d;
+  --line:#525a61;
+  --text:#eef1f3;
+  --muted:#aab2b8;
+  --accent:#6ab0ff;
+  --ok:#4cd17a;
+  --bad:#ff6b6b;
+  --score:#ffd24c;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html,body{margin:0;}
+body{
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  background:radial-gradient(120% 120% at 50% 0%,#33383d 0%,var(--bg) 60%);
+  color:var(--text);
+  min-height:100dvh;
+  display:flex;justify-content:center;
+  padding:env(safe-area-inset-top) 12px 24px;
+}
+.app{width:100%;max-width:460px;display:flex;flex-direction:column;gap:14px;padding-top:18px;}
+
+.head{text-align:center;}
+.title{
+  margin:0;font-weight:900;letter-spacing:.5px;
+  font-size:clamp(22px,7vw,30px);
+  text-transform:uppercase;
+  text-shadow:0 2px 0 rgba(0,0,0,.35);
+}
+.subtitle{margin:4px 0 0;display:flex;gap:8px;justify-content:center;color:var(--muted);font-weight:700;font-size:14px;}
+.subtitle .ru::before{content:"· ";}
+
+/* bilingual stacking */
+.ru{color:var(--muted);font-weight:700;}
+
+.modes{display:flex;gap:8px;}
+.mode{
+  flex:1;cursor:pointer;border:1px solid var(--line);
+  background:var(--panel);color:var(--text);
+  border-radius:12px;padding:8px 4px;font-family:inherit;font-weight:800;
+  display:flex;flex-direction:column;align-items:center;line-height:1.15;
+  font-size:14px;transition:.15s;
+}
+.mode .ru{font-size:11px;}
+.mode.active{background:var(--accent);color:#0c2238;border-color:var(--accent);}
+.mode.active .ru{color:#0c2238;opacity:.8;}
+
+.card{
+  background:var(--panel);border:1px solid var(--line);border-radius:18px;
+  padding:18px 16px;display:flex;flex-direction:column;gap:14px;align-items:center;
+  box-shadow:0 8px 24px rgba(0,0,0,.25);
+}
+.prompt{margin:0;text-align:center;display:flex;flex-direction:column;line-height:1.25;font-weight:800;font-size:17px;}
+.prompt .ru{font-size:14px;}
+
+.icon-wrap{
+  width:160px;height:160px;border-radius:16px;
+  background:
+    linear-gradient(45deg,#3a3f44 25%,transparent 25%) -10px 0/20px 20px,
+    linear-gradient(-45deg,#3a3f44 25%,transparent 25%) -10px 0/20px 20px,
+    linear-gradient(45deg,transparent 75%,#3a3f44 75%) -10px 0/20px 20px,
+    linear-gradient(-45deg,transparent 75%,#3a3f44 75%) -10px 0/20px 20px,
+    var(--panel2);
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--line);
+}
+.icon{
+  width:128px;height:128px;object-fit:contain;
+  image-rendering:pixelated;image-rendering:crisp-edges;
+  filter:drop-shadow(0 4px 6px rgba(0,0,0,.4));
+}
+
+.choices{display:flex;flex-direction:column;gap:10px;width:100%;}
+.choice{
+  width:100%;cursor:pointer;font-weight:400;font-size:15px;line-height:1.4;
+  font-family:"Retro Gaming",monospace;font-synthesis:none;
+  color:var(--text);background:var(--panel2);border:1px solid var(--line);
+  border-radius:12px;padding:14px 12px;transition:transform .05s,background .15s,border-color .15s;
+  min-height:54px;
+}
+.choice:active{transform:scale(.98);}
+.choice.correct{background:var(--ok);color:#06301a;border-color:var(--ok);}
+.choice.wrong{background:var(--bad);color:#3a0606;border-color:var(--bad);}
+.choice:disabled{cursor:default;}
+
+.feedback{height:22px;font-weight:800;font-size:15px;text-align:center;}
+.feedback.ok{color:var(--ok);}
+.feedback.bad{color:var(--bad);}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:8px 4px;text-align:center;}
+.stat-label{display:flex;flex-direction:column;line-height:1.1;font-size:11px;font-weight:800;color:var(--muted);}
+.stat-label .ru{font-size:10px;font-weight:700;}
+.stat-value{font-size:24px;font-weight:900;margin-top:2px;}
+.stat.ok .stat-value{color:var(--ok);}
+.stat.bad .stat-value{color:var(--bad);}
+.stat.score .stat-value{color:var(--score);}
+
+.reset{
+  align-self:center;cursor:pointer;font-family:inherit;font-weight:800;font-size:14px;
+  color:var(--text);background:transparent;border:1px solid var(--line);
+  border-radius:10px;padding:8px 18px;display:flex;gap:8px;
+}
+.reset .ru::before{content:"· ";}
+.reset:active{background:var(--panel);}
+
+.foot{display:flex;flex-direction:column;align-items:center;gap:2px;color:var(--muted);font-size:11px;text-align:center;margin-top:4px;}

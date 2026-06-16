@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="theme-color" content="#2b2f33" />
+<title>CU INT 0 memory trainer</title>
+<link rel="preload" href="fonts/retro_gaming.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<main class="app">
+  <header class="head">
+    <h1 class="title">CU&nbsp;INT&nbsp;0 memory trainer</h1>
+    <p class="subtitle"><span>memory trainer</span><span class="ru">тренажёр памяти</span></p>
+  </header>
+
+  <section class="modes" id="modes" aria-label="category">
+    <button class="mode" data-mode="Medical">
+      <span>Medical</span><span class="ru">Медицина</span>
+    </button>
+    <button class="mode" data-mode="Drugs">
+      <span>Drugs</span><span class="ru">Препараты</span>
+    </button>
+  </section>
+
+  <section class="card">
+    <p class="prompt"><span>What is this item?</span><span class="ru">Что это за предмет?</span></p>
+    <div class="icon-wrap">
+      <img id="icon" class="icon" alt="item icon" />
+    </div>
+    <div class="choices" id="choices"></div>
+    <div class="feedback" id="feedback">&nbsp;</div>
+  </section>
+
+  <section class="stats" aria-label="stats">
+    <div class="stat">
+      <div class="stat-label"><span>Total</span><span class="ru">Всего</span></div>
+      <div class="stat-value" id="total">0</div>
+    </div>
+    <div class="stat ok">
+      <div class="stat-label"><span>Correct</span><span class="ru">Верно</span></div>
+      <div class="stat-value" id="correct">0</div>
+    </div>
+    <div class="stat bad">
+      <div class="stat-label"><span>Incorrect</span><span class="ru">Неверно</span></div>
+      <div class="stat-value" id="incorrect">0</div>
+    </div>
+    <div class="stat score">
+      <div class="stat-label"><span>Score</span><span class="ru">Счёт</span></div>
+      <div class="stat-value" id="score">0</div>
+    </div>
+  </section>
+
+  <button class="reset" id="reset">
+    <span>Reset</span><span class="ru">Сброс</span>
+  </button>
+
+  <footer class="foot">
+    <span>icons &amp; font: SCAV Prototype wiki</span>
+    <span class="ru">иконки и шрифт: вики SCAV Prototype</span>
+  </footer>
+</main>
+
+<script src="data.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
